@@ -10,7 +10,8 @@ class Home extends React.Component {
           topic: '',
           start: '',
           end: '',
-          key: 'e80d2a443a884de39f5a65f217ff0f12'
+          key: 'e80d2a443a884de39f5a65f217ff0f12',
+          articles: []
         }
       }
     
@@ -19,7 +20,13 @@ class Home extends React.Component {
       }
     
       renderArticles = () => {
-        axios.get(`e80d2a443a884de39f5a65f217ff0f12`)
+        axios
+            .get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${this.state.topic}&api-key=e80d2a443a884de39f5a65f217ff0f12`)
+            .then(data => {
+                console.log(data.data.response.docs)
+                this.setState({ articles:data.data.response.docs})
+            })
+            .catch(err => console.log(err))
       }
 
       render(){
