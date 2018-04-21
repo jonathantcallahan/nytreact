@@ -1,36 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Header from './components/header/Header'
-import Search from './components/search/Search'
+import Home from './pages/Home'
+import Favorites from './pages/Favorites'
+import axios from 'axios'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
 
-  constructor(){
-    super()
-    
-    this.state = {
-      topic: '',
-      start: '',
-      end: ''
-    }
-  }
-
-  setSearch = (search) => {
-    this.setState({...search})
-  }
-
-  renderArticles = () => {
-
-  }
-
   render() {
     return (
-      <div>
-        <Header />
-        <Search update={this.setSearch} search={this.setSearch}/>
-      </div>
-    );
+      <Router>
+        <div>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/favorites' component={Favorites}/>
+        </div>
+      </Router>
+      );
   }
 }
 
