@@ -32,12 +32,13 @@ class Home extends React.Component {
 
       saveArticle = (title, href) => {
         axios
-            .post('http://localhost:3001/', {
+            .post('/api/article', {
                 title: title,
                 date: '',
                 href: href
             })
             .then(res => console.log(res))
+            .catch(err => console.log(err))
       }
 
       render(){
@@ -46,7 +47,7 @@ class Home extends React.Component {
                 <Search set={this.setSearch} update={this.renderArticles} state={this.state}/>
                 {
                     this.state.articles.map(e => {
-                       return <SearchItems save={this.saveArticle} snippet={e.snippet} key={e._id} web_url={e.web_url}/>
+                       return <SearchItems save={this.saveArticle} buttonT='Add To Favorites' snippet={e.snippet} key={e._id} web_url={e.web_url}/>
                     })
                 }
             </div>  

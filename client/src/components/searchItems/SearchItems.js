@@ -10,7 +10,7 @@ class SearchItems extends React.Component {
                 </a>
                 <button 
                     onClick={() => this.props.save(this.props.snippet, this.props.web_url)}>
-                    Save to favorites
+                    {this.props.buttonT}
                 </button>
             </div>
         )

@@ -2,19 +2,22 @@ const db = require('../models/article')
 
 module.exports = {
     findAll: function(req, res){
-        db.Article
-            .findAll()
+        db
+            .find()
             .then(data => res.json(data) )
             .catch(err => res.status(422).json(err))
     },
     saveArticle: function(req, res){
-        db.Article
+        db
             .create(req.body)
-            .then(data => res.json(data))
+            .then(data => {
+                console.log('request recieved')
+                res.json(data)
+            })
             .catch(err => res.status(422).json(err))
     },
     deleteArticle: function(req, res){
-        db.Article
+        db
             .remove({_id: req.params.id})
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
