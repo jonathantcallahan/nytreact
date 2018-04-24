@@ -11,20 +11,24 @@ class Favorites extends React.Component {
         }
     }
 
-    componentDidMount(){
+    articleGet(){
         axios
             .get('/api/article')
-            .then(data => {
-                console.log(data.data)
-                this.setState({ savedArticles:data.data })
-            })
+            .then(data => this.setState({ savedArticles:data.data }))
             .catch(err => console.log(err))
+    }   
+
+    componentDidMount(){
+        this.articleGet()
     }
     
     deleteArticle = (title, url, id) => {
         axios
             .delete(`/api/article/${id}`)
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                this.articleGet()
+            })
             .catch(err => console.log(err))
     }
 
@@ -38,7 +42,7 @@ class Favorites extends React.Component {
                                 save={this.deleteArticle} 
                                 buttonT='Remove from Favorites' 
                                 snippet={e.title} 
-                                key={e._id} 
+                                _id={e._id} 
                                 web_url={e.href}/>
                     })
                 }
