@@ -21,14 +21,28 @@ class Favorites extends React.Component {
             .catch(err => console.log(err))
     }
     
+    deleteArticle = (title, url, id) => {
+        axios
+            .delete(`/api/article/${id}`)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+    }
+
     render(){
         return(
-            <div>This will be the favorites page</div>
-            {
-                this.state.savedArticles.map(e => {
-                    <SearchItems save={this.deleteArticle}
-                })
-            }
+            <div>
+                <div>This will be the favorites page</div>
+                {
+                    this.state.savedArticles.map(e => {
+                            return <SearchItems 
+                                save={this.deleteArticle} 
+                                buttonT='Remove from Favorites' 
+                                snippet={e.title} 
+                                key={e._id} 
+                                web_url={e.href}/>
+                    })
+                }
+            </div>          
         )
     }
 }

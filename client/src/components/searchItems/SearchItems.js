@@ -9,7 +9,7 @@ class SearchItems extends React.Component {
                     <h3>{this.props.snippet}</h3>
                 </a>
                 <button 
-                    onClick={() => this.props.save(this.props.snippet, this.props.web_url)}>
+                    onClick={() => this.props.save(this.props.snippet, this.props.web_url, this.props.key)}>
                     {this.props.buttonT}
                 </button>
             </div>
