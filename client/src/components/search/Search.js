@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Button from 'material-ui/Button'
 class Search extends React.Component {
 
     render(){
@@ -16,20 +16,21 @@ class Search extends React.Component {
                     <label htmlFor='start'>Start Date</label>    
                     <input 
                         id='start'
-                        type='date'
-                        min='1800-01-01'
+                        type='text'
                         name='start'
+                        placeholder='YYYYMMDD'
                         value={this.props.state.start}
                         onChange={this.props.set}
                         />
                     <label htmlFor='end'>End Date</label>
                     <input 
                         id='end'
-                        type='date'
+                        type='text'
                         name='end'
+                        placeholder='YYYYMMDD'
                         value={this.props.state.end}
                         onChange={this.props.set}/>
-                    <button onClick={this.props.update}>Search</button>
+                    <Button variant='raised' color='primary' onClick={this.props.update}>Search</Button>
 
                 </div>    
             </div>

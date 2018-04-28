@@ -22,7 +22,7 @@ class Favorites extends React.Component {
         this.articleGet()
     }
     
-    deleteArticle = (title, url, id) => {
+    deleteArticle = (title, url, date, id) => {
         axios
             .delete(`/api/article/${id}`)
             .then(data => {
@@ -35,7 +35,6 @@ class Favorites extends React.Component {
     render(){
         return(
             <div>
-                <div>This will be the favorites page</div>
                 {
                     this.state.savedArticles.map(e => {
                             return <SearchItems 
