@@ -1,0 +1,17 @@
+.btn-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-link {
+    display: inline-block;
+}
+
+.title-cont {
+    text-align: center;
+    font-family: arial;
+    width: 100%;
+    background-color: rgb(50, 58, 172);
+    color: white;
+    padding: 10px;
+}
