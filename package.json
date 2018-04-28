@@ -6,6 +6,16 @@
     "mongoose": "^5.0.15"
   },
   "scripts": {
-    "start": "node index.js"
-  }
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "name": "nytreact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jonathantcallahan/nytreact.git",
+  "author": "<jtc7537@gmail.com>",
+  "license": "MIT"
 }
