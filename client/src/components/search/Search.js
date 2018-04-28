@@ -1,11 +1,13 @@
 import React from 'react'
 import Button from 'material-ui/Button'
+
+
+
 class Search extends React.Component {
 
     render(){
         return(
             <div>
-                This will be the search page
                 <div>
                     <input 
                         type='text' 
